@@ -29,13 +29,12 @@ def check_haproxy_conns(url, user, password, warning, critical):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Check HAProxy current connections.')
-    parser.add_argument('url', help='HAProxy URL')
-    parser.add_argument('user', help='HAProxy username')
-    parser.add_argument('password', help='HAProxy password')
+    parser.add_argument('-U', '--url', help='HAProxy URL')
+    parser.add_argument('-u', '--user', help='HAProxy username')
+    parser.add_argument('-p', '--password', help='HAProxy password')
     parser.add_argument('-w', '--warning', type=int, help='Warning threshold for current connections')
     parser.add_argument('-c', '--critical', type=int, help='Critical threshold for current connections')
     
     args = parser.parse_args()
     
     check_haproxy_conns(args.url, args.user, args.password, args.warning, args.critical)
-
